@@ -56,7 +56,7 @@ const Contact = () => {
             {id: 2, url: '#', name: "تواصل معنا"},
             ]}
             title="تواصل معنا"
-            img={$`img`}
+            img={img}
         />
         <Container maxWidth="lg">
         <Grid container spacing={4} my={{xs:"1.5rem",sm:"3rem"}}>
