@@ -7,13 +7,14 @@ import BabyChangingStationIcon from '@mui/icons-material/BabyChangingStation';
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
-
+import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction';
 const data =[
     {id:1, text :'فحوصات جينية',icon: <AcUnitIcon/>},
     {id:2, text: 'فحوصات تطورية',icon: <BabyChangingStationIcon/>},
     {id:3, text :'التقييم الاستيعابي',icon: <PsychologyIcon/>},
     {id:4, text :'تقييم الذكاء الاصطناعي',icon: <QueuePlayNextIcon/>},
     {id:5, text :'تدخل مبكر',icon: <FamilyRestroomIcon/>},
+    {id:5, text :'استشارات اونلاين',icon: <OnlinePredictionIcon/>},
 ]
 
 export default function Services() {

@@ -18,9 +18,10 @@ import AuthApiEndpoints from "@/services/auth/api";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { UserData } from "@/context/UserProvider";
+import bgImage from "../../public/assets/images/gallery/16.jpeg";
 
 const Login = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { setProfileData } = useContext(UserData);
 
@@ -41,130 +42,135 @@ const Login = () => {
     resolver: yupResolver(schema),
     mode: "all",
   });
+
   const onSubmit = (data) => {
     const formData = new FormData();
-    formData.append('phone', data.phone);
-    formData.append('password', data.password);
+    formData.append("phone", data.phone);
+    formData.append("password", data.password);
     return AuthApiEndpoints.login(data)
       .then((res) => {
-        Cookies.set('token', res?.data?.token)
-        setProfileData(res?.data?.user)
-        reset()
-        router.push('/')
+        Cookies.set("token", res?.data?.token);
+        setProfileData(res?.data?.user);
+        reset();
+        router.push("/");
       })
       .catch((error) => {
         setLoading(false);
         toast.error("من فضلك راجع البيانات مره اخري");
       });
   };
+
   return (
     <>
-      <HeroPages
+      {/* <HeroPages
         links={[
-          { id: 1, url: "/", name: "الرئيسيه" },
+          { id: 1, url: "/", name: "الرئيسية" },
           { id: 2, url: "#", name: "تسجيل الدخول" },
         ]}
         title="تسجيل الدخول"
         img={img}
-      />
-      <Container maxWidth="lg">
-        <Grid
-          container
-          spacing={2}
-          alignItems="center"
-          my={3}
-          justifyContent="space-between"
-        >
-          <Grid item xs={12} sm={6}>
-            <Box
-              sx={{
-                height: { xs: "20rem", sm: "30rem", lg: "40rem" },
-                position: "relative",
-              }}
-            >
-              <Image
-                src={loginImg}
-                alt="about"
-                layout="fill"
-                loading="lazy"
-                style={{ objectFit: "contain" }}
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} sm={5}>
-            <Box
-              noValidate
-              autoComplete="off"
-              onSubmit={handleSubmit(onSubmit)}
-              component="form"
-            >
-              <Stack>
-                <Typography
-                  pb="1.3rem"
-                  variant="h5"
-                  sx={{ margin: "auto", maxWidth: { md: "80%" } }}
-                  textAlign="center"
-                  color="#621493"
-                  mb="1rem"
+      /> */}
+      <Box
+        sx={{
+          backgroundImage: `url(${bgImage.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          padding: "20px", 
+        }}
+      >
+        <Container maxWidth="lg">
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            my={3}
+            justifyContent="space-between"
+          >
+            <Grid item xs={12} sm={3}></Grid>
+            <Grid item xs={12} sm={6}>
+              <Box
+                noValidate
+                autoComplete="off"
+                onSubmit={handleSubmit(onSubmit)}
+                component="form"
+              >
+                <Stack
+                  sx={{
+                    background: "#ffffffe8",
+                    padding: "60px 20px 40px 20px",
+                    borderRadius: "8px",
+                  }}
                 >
-                  الرجاء تسجيل الدخول للوصول إلى خدماتنا المتخصصة والشخصية. نحن
-                  هنا لتقديم الدعم والرعاية لك ولعائلتك
-                </Typography>
-                <Grid
-                  container
-                  spacing={{ xs: 1.5, md: 4 }}
-                  pt={{ xs: "0", sm: "2rem" }}
-                  pb={{ xs: "1.5rem", sm: "3rem" }}
-                  justifyContent="center"
-                >
-                  <Grid item xs={12} md={12}>
-                    <CustomInput
-                      label="رقم الهاتف"
-                      register={register}
-                      name="phone"
-                      errors={errors}
-                      touchedFields={touchedFields}
-                      type="number"
-                      id="phone"
-                    />
-                  </Grid>
+                  <Typography
+                    pb="1.3rem"
+                    variant="h5"
+                    sx={{ margin: "auto", maxWidth: { md: "80%" } }}
+                    textAlign="center"
+                    color="#621493"
+                    mb="1rem"
+                  >
+                    الرجاء تسجيل الدخول للوصول إلى خدماتنا المتخصصة والشخصية.
+                    نحن هنا لتقديم الدعم والرعاية لك ولعائلتك
+                  </Typography>
+                  <Grid
+                    container
+                    spacing={{ xs: 1.5, md: 4 }}
+                    pt={{ xs: "0", sm: "2rem" }}
+                    pb={{ xs: "1.5rem", sm: "3rem" }}
+                    justifyContent="center"
+                  >
+                    <Grid item xs={12} md={12}>
+                      <CustomInput
+                        label="رقم الهاتف"
+                        register={register}
+                        name="phone"
+                        errors={errors}
+                        touchedFields={touchedFields}
+                        type="number"
+                        id="phone"
+                        sx={{ 
+                        }}
+                      />
+                    </Grid>
 
-                  <Grid item xs={12} sm={12}>
-                    <CustomInput
-                      label="الرقم السري"
-                      register={register}
-                      name="password"
-                      errors={errors}
-                      touchedFields={touchedFields}
-                      type="password"
-                      id="password"
-                    />
-                  </Grid>
+                    <Grid item xs={12} sm={12}>
+                      <CustomInput
+                        label="الرقم السري"
+                        register={register}
+                        name="password"
+                        errors={errors}
+                        touchedFields={touchedFields}
+                        type="password"
+                        id="password"
+                      />
+                    </Grid>
 
-                  <Grid item xs={12} sm={4}>
-                    <LoadingButton
-                      loading={loading}
-                      type="submit"
-                      variant="contained"
-                      sx={{
-                        width: "100%",
-                        py: ".7rem",
-                        backgroundColor: "#621493",
-                        "&:hover": {
-                          backgroundColor: "#5c466a",
-                          color: "common.white",
-                        },
-                      }}
-                    >
-                      تسجيل الدخول
-                    </LoadingButton>
+                    <Grid item xs={12} sm={4}>
+                      <LoadingButton
+                        loading={loading}
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                          width: "100%",
+                          py: ".7rem",
+                          backgroundColor: "#621493",
+                          "&:hover": {
+                            backgroundColor: "#5c466a",
+                            color: "common.white",
+                          },
+                        }}
+                      >
+                        تسجيل الدخول
+                      </LoadingButton>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </Stack>
-            </Box>
+                </Stack>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={3}></Grid>
           </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Box>
     </>
   );
 };

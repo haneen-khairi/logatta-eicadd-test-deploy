@@ -169,7 +169,7 @@ const Gallery = () => {
     <>
       <HeroPages
         links={[
-          { id: 1, url: "/", name: "الرئيسيه" },
+          { id: 1, url: "/", name: "الرئيسية" },
           { id: 2, url: "#", name: "المعرض" },
         ]}
         title="المعرض"

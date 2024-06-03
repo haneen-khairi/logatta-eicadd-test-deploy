@@ -52,7 +52,7 @@ const Contact = () => {
     <>
         <HeroPages
             links={[
-            {id: 1, url: '/', name: "الرئيسيه"},
+            {id: 1, url: '/', name: "الرئيسية"},
             {id: 2, url: '#', name: "تواصل معنا"},
             ]}
             title="تواصل معنا"

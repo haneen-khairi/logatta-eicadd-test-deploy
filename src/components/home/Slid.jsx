@@ -20,8 +20,8 @@ const Slider = () => {
             sx={{ width: '100%', height: '100%' }}
           />
           <Box sx={{ position: 'absolute', top: {xs:'30%',sm:'40%',md:'51%'}, left:  {xs:'5%', md:'4%'}, width: {xs:'55%', md:'40%'}}}>
-            <Typography variant='h2' color='#0b610b' fontWeight={800} textAlign={{md:'center'}}>
-              نسعى لتقديم الرعاية المتخصصة والشاملة للأطفال والأسر المتأثرة بالتوحد
+            <Typography variant='h2' color='#150066' fontWeight={800} textAlign={{md:'center'}}>
+            اول مراكز تدخل مبكر مدعومة بالذكاء الاصطناعي لتقييم وعلاج التوحد والاضطرابات التطورية
             </Typography>
 
           </Box>

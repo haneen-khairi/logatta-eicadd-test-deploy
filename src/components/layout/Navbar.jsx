@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../../../public/assets/images/logo.png";
+import logo from "../../../public/assets/images/logo-main.png";
 import { useRouter } from "next/router";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useEffect, useState,useContext } from "react";
@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const navItems = [
     {
-      text: "الرئيسيه",
+      text: "الرئيسية",
       url: "/",
       id: "1",
     },

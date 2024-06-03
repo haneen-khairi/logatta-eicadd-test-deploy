@@ -1,5 +1,5 @@
 import { Box, Grid, Typography, Container, Stack } from "@mui/material";
-import img1 from "../../../public/assets/images/home-bottom-img.jpeg";
+import img1 from "../../../public/assets/images/gallery/9.jpeg";
 import Image from "next/image";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import BabyChangingStationIcon from "@mui/icons-material/BabyChangingStation";
@@ -53,10 +53,10 @@ export default function AboutUs() {
             sx={{ height: "100%" }}
           >
             <Typography sx={{mb:{xs:'1rem'}}} variant="h4" color="primary.main" fontWeight={600}>
-              فريق طبي محترف ومدرب تدريباً عالياً في مجموعة متنوعة من الرعاية
+              فريق متخصص ومدرب تدريباً عالياً في مجموعة متنوعة من الرعاية
               المتخصصة للاطفال و الرضع المصابين بالتوحد و اضطرابات النمو
             </Typography>
-            <Grid
+            {/* <Grid
               container
               spacing={{ xs: 1.5, md: 4 }}
               pt={{ xs: "0", sm: "2rem" }}
@@ -88,7 +88,7 @@ export default function AboutUs() {
                   </Box>
                 </Grid>
               ))}
-            </Grid>
+            </Grid> */}
           </Box>
         </Grid>
 

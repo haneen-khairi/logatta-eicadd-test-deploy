@@ -1,6 +1,6 @@
 import { Box, Button, Container, Grid, Stack, Typography, useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
-import logoFooter from "../../../public/assets/images/logo.png"
+import logoFooter from "../../../public/assets/images/logo-main.png"
 import Image from 'next/image'
 import Link from 'next/link'
 import { buttonContact, buttonFooterList, contactIconFooter, styleIconFooter } from './style'
@@ -8,10 +8,9 @@ import { faceIcon, instaIcon, location, messageIcon, phoneIcon, snapIcon, twitte
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 const Icons = [
-    { id: 1, icon: faceIcon, url: '#' },
-    { id: 2, icon: instaIcon, url: '#' },
-    { id: 3, icon: twitterIcon, url: '#' },
-    { id: 4, icon: youtubeIcon, url: '#' },
+    { id: 1, icon: faceIcon, url: 'https://www.facebook.com/eid4add' },
+    { id: 2, icon: instaIcon, url: 'https://x.com/eic4add' },
+    { id: 3, icon: twitterIcon, url: 'https://www.instagram.com/eic4add/' }, 
 ]
 
 const Footer = () => {
@@ -19,8 +18,11 @@ const Footer = () => {
     const mobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const listLinks = [
-        { id: 1, name: 'الرئيسيه', url: '/' },
-        { id: 4, name: 'المعرض', url: '/gallery' },
+        { id: 1, name: 'الرئيسية', url: '/' },
+        { id: 4, name: 'المعرض', url: '/gallery' }, 
+
+    ]
+    const listLinks2 = [ 
         { id: 2, name: 'من نحن', url: '/about' },
         { id: 3, name: 'تواصل معنا', url: '/contact-us' },
 
@@ -35,28 +37,39 @@ const Footer = () => {
             <Box sx={{ backgroundColor: "#621493", mt: "1.5rem" }}>
                 <Container>
                     <Grid container spacing={{ xs: 1.2, md: 3 }} py="1rem">
-                        <Grid item xs={12} sm={12} md={3}>
+                        <Grid item xs={12} sm={12} md={2}>
                             <Stack spacing={{ xs: 1.2, md: 3 }} display='flex' justifyContent='center' alignItems='center'>
                                 <Image
                                     src={logoFooter}
                                     alt="b-right logo"
                                     width={mobile ? 120 : 150}
-                                    height={85}
+                                    height={100}
                                 />
                           
                             </Stack>
                         </Grid>
-                        <Grid item xs={6} sm={4} md={3}>
+                        <Grid item xs={6} sm={4} md={2}>
                             <Stack spacing={1}>
                                 {/* <Typography variant="h4" color="common.white">روابط سريعة</Typography> */}
                                 {listLinks.map((item) => (
+                                    
                                     <Button LinkComponent={Link} href={item.url} key={item.id} sx={{ ...buttonFooterList, textTransform: "capitalize" }} startIcon={<PlayArrowIcon sx={{ color: "common.white" }} fontSize='small' />}>
                                         {item.name}
-                                    </Button>
+                                    </Button> 
                                 ))}
                             </Stack>
                         </Grid>
-                 
+                        <Grid item xs={6} sm={4} md={2}>
+                            <Stack spacing={1}>
+                                {/* <Typography variant="h4" color="common.white">روابط سريعة</Typography> */}
+                                {listLinks2.map((item) => (
+                                    
+                                    <Button LinkComponent={Link} href={item.url} key={item.id} sx={{ ...buttonFooterList, textTransform: "capitalize" }} startIcon={<PlayArrowIcon sx={{ color: "common.white" }} fontSize='small' />}>
+                                        {item.name}
+                                    </Button> 
+                                ))}
+                            </Stack>
+                        </Grid>
                         <Grid item xs={12} sm={4} md={3}>
                             <Stack spacing={2}>
                                 {/* <Typography variant="h4" color="common.white">معلومات الاتصال</Typography> */}
