@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import HeroPages from "@/components/shared/HeroPages";
 import React, { useCallback, useEffect, useState } from "react";
-import img from "../../public/assets/images/banner.jpg";
+import img from "../../public/assets/images/service-bg.jpeg";
 import aboutImg from "../../public/assets/images/about-left.png";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
