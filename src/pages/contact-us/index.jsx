@@ -56,7 +56,7 @@ const Contact = () => {
             {id: 2, url: '#', name: "تواصل معنا"},
             ]}
             title="تواصل معنا"
-            img={img}
+            img={$`img`}
         />
         <Container maxWidth="lg">
         <Grid container spacing={4} my={{xs:"1.5rem",sm:"3rem"}}>
@@ -64,10 +64,21 @@ const Contact = () => {
                 <Box sx={{backgroundColor:"#f1f1f5", p:"2rem"}}>
                     <Typography variant="h2" color="#621493" mb="1rem">عنوان مكتبنا</Typography>
                     <Typography variant="h4" color="initial">فرع الاردن :</Typography>
-                    <Typography variant="body1" color="initial">🇯🇴٢٢٤ خلدا، شارع وصفي التل، مجمع القدس سنتر، عمان، الاردن</Typography>
-
+                    <a 
+  href="https://maps.app.goo.gl/TMJpMDjtJif9Zj76A" 
+  target="_blank" 
+  rel="noreferrer"
+>
+ <Typography variant="body1" color="#621493">
+<br/>
+ 🇯🇴  ٢٢٤ شارع وصفي التل-خلدا-مجمع القدس -الطابق الخامس-مكتب ١٠
+ <br/>
+ </Typography>         
+</a>
                     <Typography variant="h4" color="initial" mt="1rem">فرع الامارات :</Typography>
-                    <Typography variant="body1" color="initial">🇦🇪 فيلا رقم ٦، شارع الطلاء، المنطزي ١، عجمان، الإمارات</Typography>
+                    <Typography variant="body1" color="initial">🇦🇪 عجمان-منطقه الروضه- فيلا رقم ١-شارع التله-بالقرب من مركز امن الحميديه
+                  
+                    </Typography>
 
                     <Typography variant="h4" color="initial" mt="1rem">تحدث معنا :</Typography>
                     <Typography variant="body1" color="initial">
