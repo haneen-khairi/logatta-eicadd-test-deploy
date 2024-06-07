@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { buttonContact, buttonFooterList, contactIconFooter, styleIconFooter } from './style'
 import { faceIcon, instaIcon, location, messageIcon, phoneIcon, snapIcon, twitterIcon, youtubeIcon } from '@/Svgs'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-
+import { useTranslation } from "react-i18next";
 const Icons = [
     { id: 1, icon: faceIcon, url: 'https://www.facebook.com/eid4add' },
     { id: 2, icon: instaIcon, url: 'https://x.com/eic4add' },
@@ -14,17 +14,18 @@ const Icons = [
 ]
 
 const Footer = () => {
+    const {t} = useTranslation()
     const theme = useTheme()
     const mobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const listLinks = [
-        { id: 1, name: 'الرئيسية', url: '/' },
-        { id: 4, name: 'المعرض', url: '/gallery' }, 
+        { id: 1, name: t("home"), url: '/' },
+        { id: 4, name: t("galleries"), url: '/gallery' }, 
 
     ]
     const listLinks2 = [ 
-        { id: 2, name: 'من نحن', url: '/about' },
-        { id: 3, name: 'تواصل معنا', url: '/contact-us' },
+        { id: 2, name: t("about_us"), url: '/about' },
+        { id: 3, name: t("contact_us"), url: '/contact-us' },
 
     ]
     const contactInfo = [
@@ -93,7 +94,8 @@ const Footer = () => {
                         </Grid>
                         <Grid item xs={12} sm={4} md={3}>
                         <Typography variant="body1" sx={{ color: "common.darkGray" }}>
-                                    أول مركز للتدخل المبكر في الشرق الاوسط يعتمد على الذكاء الاصطناعي
+                                   
+                                    {t("text_footer")}
                                 </Typography>
                             
                                 <Box sx={{ display: 'flex' , mt:'2rem' }}>

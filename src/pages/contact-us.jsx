@@ -17,9 +17,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 import Link from 'next/link'
 import AuthApiEndpoints from '@/services/auth/api'
-
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+    const {t} = useTranslation()
     const [loading, setLoading] = useState(false)
     const schema = yup
     .object({
@@ -65,17 +66,19 @@ const Contact = () => {
     <>
         <HeroPages
             links={[
-            {id: 1, url: '/', name: "الرئيسية"},
-            {id: 2, url: '#', name: "تواصل معنا"},
+            {id: 1, url: '/', name: t("home")},
+            {id: 2, url: '#', name: t("contact_us")},
             ]}
-            title="تواصل معنا"
+            title={t("contact_us")}
             img={img}
         />
         <Container maxWidth="lg">
         <Grid container spacing={4} my={{xs:"1.5rem",sm:"3rem"}}>
             <Grid item xs={12} sm={4} sx={{display:"grid", pt:"0 !important"}}>
                 <Box sx={{backgroundColor:"#f1f1f5", p:"2rem"}}>
-                    <Typography variant="h2" color="#621493" mb="1rem">عنوان مكتبنا</Typography>
+                    <Typography variant="h2" color="#621493" mb="1rem">
+                   {t("contact_text_1")}
+                    </Typography>
                     <Typography variant="h4" color="initial">فرع الاردن :</Typography>
                    
                     <a 
@@ -92,7 +95,19 @@ const Contact = () => {
 
                     <Typography variant="h4" color="initial" mt="1rem">فرع الامارات :</Typography>
                     <br/>
-                    <Typography variant="body1" color="initial">🇦🇪 عجمان-منطقه الروضه- فيلا رقم ١-شارع التله-بالقرب من مركز امن الحميديه
+                    <Typography variant="body1" color="initial">
+                    <a 
+  href="https://maps.app.goo.gl/t1i28xHcaePUf2BM7" 
+  target="_blank" 
+  rel="noreferrer"
+>
+ <Typography variant="body1" color="#621493">
+<br/>
+ 
+                    🇦🇪 عجمان-منطقه الروضه- فيلا رقم ١-شارع التله-بالقرب من مركز امن الحميديه
+                    <br/>
+ </Typography>         
+</a>
                     </Typography>
                     <br/>
                     <Typography variant="h4" color="initial" mt="1rem">تحدث معنا :</Typography>
@@ -118,8 +133,12 @@ const Contact = () => {
                 component='form'
                 mt={{xs:"0",sm:3}}
             >
-                <Typography variant="h3" color="#621493" textAlign="center">نحن نحب أن نسمع منك</Typography>
-                <Typography variant="body1" color="initial" textAlign="center">الرجاء الاتصال بنا عبر البريد الإلكتروني أو استخدام نموذج الاتصال، وسنكون سعداء بمساعدتك.</Typography>
+                <Typography variant="h3" color="#621493" textAlign="center">
+                    {t("text_contact")}
+                </Typography>
+                <Typography variant="body1" color="initial" textAlign="center">
+               {t("text_description")}
+                </Typography>
                 <Grid container spacing={{ xs: 1.5, md: 4 }} pt={{xs:"0", sm:"2rem"}} pb={{xs:"1.5rem", sm:"3rem"}} justifyContent="center">
                     <Grid item xs={12} sm={6}>
                         <CustomInput

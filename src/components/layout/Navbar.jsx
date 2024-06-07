@@ -25,8 +25,10 @@ import Cookies from "js-cookie";
 import { useGetUserData } from "@/services/auth/queries";
 import { UserData } from "@/context/UserProvider";
 import CountryDropdown from "./country-dropdown";
-
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from "react-i18next";
 const Navbar = () => {
+  const {t} = useTranslation()
   const pathname = usePathname();
   const router = useRouter();
   const {profileData, setProfileData } = useContext(UserData);
@@ -34,22 +36,22 @@ const Navbar = () => {
 
   const navItems = [
     {
-      text: "الرئيسية",
+      text: t("home"),
       url: "/",
       id: "1",
     },
     {
-      text: "المعرض",
+      text: t("galleries"),
       url: "/gallery",
       id: "2",
     },
     {
-      text: "من نحن",
+      text: t("about_us"),
       url: "/about",
       id: "3",
     },
     {
-      text: "تواصل معنا",
+      text:t("contact_us"),
       url: "/contact-us",
       id: "4",
     },
@@ -133,6 +135,7 @@ const Navbar = () => {
                   : { display: "flex", alignItems: "center" }
               }
             >
+            
               {navItems.map((item) => (
                 <Typography
                   variant="h5"
@@ -153,6 +156,7 @@ const Navbar = () => {
                   {item.text}
                 </Typography>
               ))}
+
               <Box>
                 <Box>
                 {!profileData? 
@@ -167,7 +171,7 @@ const Navbar = () => {
                         "&:hover": { backgroundColor: "#8853a9" },
                       }}
                     >
-                      تسجيل الدخول
+                    {t("text_13")}
                     </Button>
                     <Popover
                       id={id}
@@ -240,7 +244,9 @@ const Navbar = () => {
                   </div>
                   }
                 </Box>
+              
               </Box>
+                <LanguageSwitcher />
            {!mobileView && <CountryDropdown/>}
 
             </Box>

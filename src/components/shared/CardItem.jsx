@@ -8,7 +8,7 @@ import useTranslation from 'next-translate/useTranslation'
 
 const CardItem = ({item}) => {
     const [open, setOpen] =useState(false)
-    const { t } = useTranslation('common')
+     const { t } = useTranslation();
   return (
     <Card sx={{  boxShadow:"none", border: 'none', borderRadius:"0"}}>
         <CardContent sx={{ p:"0 !important",display:"flex", justifyContent: "center", alignItems:"center", flexDirection:"column"}}>

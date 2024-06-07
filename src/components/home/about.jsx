@@ -4,17 +4,18 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import PersonalVideoIcon from '@mui/icons-material/PersonalVideo';
 import MedicationLiquidIcon from '@mui/icons-material/MedicationLiquid';
 import { useTheme } from '@emotion/react';
-
+import { useTranslation } from "react-i18next";
 
 
 const About = () => {
+    const {t} = useTranslation()
     const theme = useTheme()
     const mobileView = useMediaQuery(theme.breakpoints.down('sm'));
     const data = [
         {
             id: 1,
-            title: "كادر علمي متخصص",
-            content: "فريق علمي متكامل ذو خبرة وفيرة تحت اشراف الدكتور نورالدين الديري لرسم خطة علاج طفلك",
+            title: t("text_1") ,
+            content:  t("content_1"),
             icon: <Diversity3Icon style={{
                 textAlign: 'center!important',
                 opacity: ".3",
@@ -23,8 +24,8 @@ const About = () => {
         },
         {
             id: 2,
-            title: "استشارات اونلاين ",
-            content: " استشارات ومتابعات اونلاين تساعدك على فهم تطور طفلك وتقييمه من قبل الدكتور نورالدين الديري وفريقه مباشرة من بيتك ",
+            title: t("text_2"),
+            content:  t("content_2"),
             icon: <PersonalVideoIcon style={{
                 opacity: ".3",
                 fontSize: mobileView ? '30px': "50px"
@@ -32,8 +33,8 @@ const About = () => {
         },
         {
             id: 3,
-            title: "سارع بحجز موعد",
-            content: "اتصل على ارقام فروعنا لمعرفة المزيد حول خدماتنا وحجز موعد لتقييم طفلك",
+            title: t("text_3"),
+            content:  t("content_3"),
             icon: <MedicationLiquidIcon style={{
                 opacity: ".3",
                 fontSize: mobileView ? '30px': "50px"
@@ -41,8 +42,8 @@ const About = () => {
         },
         {
             id: 4,
-            title: " نستخدم الذكاء الإصطناعي",
-            content: "المركز الرائد في مجال الابتكار الطبي والمدعوم بالذكاء الاصطناعي، تحت اشراف الدكتور نورالدين الديري",
+            title: t("text_4"),
+            content:  t("content_4"),
             icon: <CalendarMonthIcon style={{
                 opacity: ".3",
                 fontSize: mobileView ? '30px': "50px"

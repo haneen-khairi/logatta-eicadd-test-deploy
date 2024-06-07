@@ -6,7 +6,7 @@ import BabyChangingStationIcon from "@mui/icons-material/BabyChangingStation";
 import PsychologyIcon from "@mui/icons-material/Psychology";
 import QueuePlayNextIcon from "@mui/icons-material/QueuePlayNext";
 import FamilyRestroomIcon from "@mui/icons-material/FamilyRestroom";
-
+import { useTranslation } from "react-i18next";
 const data = [
   {
     id: 1,
@@ -35,6 +35,7 @@ const data = [
 ];
 
 export default function AboutUs() {
+  const {t} = useTranslation()
   return (
     <Container>
       <Grid
@@ -53,8 +54,7 @@ export default function AboutUs() {
             sx={{ height: "100%" }}
           >
             <Typography sx={{mb:{xs:'1rem'}}} variant="h4" color="primary.main" fontWeight={600}>
-              فريق متخصص ومدرب تدريباً عالياً في مجموعة متنوعة من الرعاية
-              المتخصصة للاطفال و الرضع المصابين بالتوحد و اضطرابات النمو
+         {t('text_6')}
             </Typography>
             {/* <Grid
               container
