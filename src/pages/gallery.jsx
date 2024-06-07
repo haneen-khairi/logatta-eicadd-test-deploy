@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import HeroPages from "@/components/shared/HeroPages";
 import React, { useCallback, useEffect, useState } from "react";
-import img from "../../public/assets/images/banner.jpg";
+import img from "../../public/assets/images/service-bg.jpeg";
 import aboutImg from "../../public/assets/images/about-left.png";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -14,7 +14,7 @@ import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageViewer from "react-simple-image-viewer";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-
+import { useTranslation } from "react-i18next";
 const itemData = [
   {
     img: "/assets/images/gallery/1.jpeg",
@@ -143,6 +143,7 @@ function srcset(image, size, rows = 1, cols = 1) {
 }
 
 const Gallery = () => {
+  const {t} = useTranslation()
     const [imagesList, setImgList] = useState([]);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [currentImage, setCurrentImage] = useState(0);
@@ -167,14 +168,14 @@ const Gallery = () => {
   };
   return (
     <>
-      <HeroPages
-        links={[
-          { id: 1, url: "/", name: "الرئيسية" },
-          { id: 2, url: "#", name: "المعرض" },
-        ]}
-        title="المعرض"
-        img={img}
-      />
+    <HeroPages
+      links={[
+        { id: 1, url: "/", name: t("home") },
+        { id: 2, url: "#", name: t("galleries") }, 
+      ]}
+      title={t("galleries")}  
+      img={img}
+    />
       <Container maxWidth="lg">
         <ImageList
           sx={{ width: "100%", my: "3rem" }}

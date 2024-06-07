@@ -8,16 +8,19 @@ import PsychologyIcon from '@mui/icons-material/Psychology';
 import QueuePlayNextIcon from '@mui/icons-material/QueuePlayNext';
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import OnlinePredictionIcon from '@mui/icons-material/OnlinePrediction';
-const data =[
-    {id:1, text :'فحوصات جينية',icon: <AcUnitIcon/>},
-    {id:2, text: 'فحوصات تطورية',icon: <BabyChangingStationIcon/>},
-    {id:3, text :'التقييم الاستيعابي',icon: <PsychologyIcon/>},
-    {id:4, text :'تقييم الذكاء الاصطناعي',icon: <QueuePlayNextIcon/>},
-    {id:5, text :'تدخل مبكر',icon: <FamilyRestroomIcon/>},
-    {id:5, text :'استشارات اونلاين',icon: <OnlinePredictionIcon/>},
-]
+import { useTranslation } from "react-i18next";
+
 
 export default function Services() {
+    const {t} = useTranslation()
+    const data =[
+        {id:1, text :t("text_7"),icon: <AcUnitIcon/>},
+        {id:2, text: t("text_8"),icon: <BabyChangingStationIcon/>},
+        {id:3, text :t("text_9"),icon: <PsychologyIcon/>},
+        {id:4, text :t("text_10"),icon: <QueuePlayNextIcon/>},
+        {id:5, text :t("text_11"),icon: <FamilyRestroomIcon/>},
+        {id:5, text :t("text_12"),icon: <OnlinePredictionIcon/>},
+    ]
     return (
         <Box sx={{
             backgroundImage: `url('/assets/images/service-bg.jpeg')`,

@@ -13,12 +13,16 @@ import { useRouter } from "next/router";
 import NProgress from 'nprogress';
 import Router from 'next/router';
 import UserContextProvider from "@/context/UserProvider";
-import Head from "next/head";
+import Head from "next/head"; 
+import { appWithTranslation } from 'next-i18next'; // Import appWithTranslation
+import { I18nextProvider } from 'react-i18next'; // Import I18nextProvider
+import '../../i18n'; // Import your i18n configuration
 
+ 
 
 HttpHelpers.setBaseUrl(process.env.API_URL);
 
-export default function MyApp(props) {
+function MyApp(props) {
   const router = useRouter();
   const { Component, pageProps } = props;
 
@@ -42,39 +46,35 @@ export default function MyApp(props) {
     NProgress.done();
   });
 
-    return (
-      <>
+  return (
+    <>
       <Head>
-      <title> منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد.  </title>
-      <link rel="icon" href="/favicon.ico" />
-          <meta charSet="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <meta name="description" content="A platform dedicated to supporting autism people and autism children." />
-          <meta name="keywords" content="autism, autism support, autism children, autism people" />
-          <meta name="author" content="Your Name or Company" />
+        <title>منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد.</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="A platform dedicated to supporting autism people and autism children." />
+        <meta name="keywords" content="autism, autism support, autism children, autism people" />
+        <meta name="author" content="Your Name or Company" />
 
+        <meta name="description" lang="ar" content="منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد." />
+        <meta name="keywords" lang="ar" content="التوحد, دعم التوحد, أطفال التوحد, الأشخاص المصابين بالتوحد" />
+        <meta property="og:title" lang="ar" content="منصة دعم التوحد" />
+        <meta property="og:description" lang="ar" content="منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد." />
+        <meta name="twitter:title" lang="ar" content="منصة دعم التوحد" />
+        <meta name="twitter:description" lang="ar" content="منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد." />
 
-          <meta name="description" lang="ar" content="منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد." />
-          <meta name="keywords" lang="ar" content="التوحد, دعم التوحد, أطفال التوحد, الأشخاص المصابين بالتوحد" />
-          <meta property="og:title" lang="ar" content="منصة دعم التوحد" />
-          <meta property="og:description" lang="ar" content="منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد." />
-          <meta name="twitter:title" lang="ar" content="منصة دعم التوحد" />
-          <meta name="twitter:description" lang="ar" content="منصة مخصصة لدعم الأشخاص المصابين بالتوحد والأطفال المصابين بالتوحد." />
+        <meta property="og:title" content="Autism Support Platform" />
+        <meta property="og:description" content="A platform dedicated to supporting autism people and autism children." />
+        <meta property="og:image" content="/path/to/your/image.jpg" />
+        <meta property="og:url" content="https://yourwebsite.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Autism Support Platform" />
+        <meta name="twitter:description" content="A platform dedicated to supporting autism people and autism children." />
+        <meta name="twitter:image" content="/path/to/your/image.jpg" />
 
-          <meta property="og:title" content="Autism Support Platform" />
-          <meta property="og:description" content="A platform dedicated to supporting autism people and autism children." />
-          <meta property="og:image" content="/path/to/your/image.jpg" />
-          <meta property="og:url" content="https://yourwebsite.com" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Autism Support Platform" />
-          <meta name="twitter:description" content="A platform dedicated to supporting autism people and autism children." />
-          <meta name="twitter:image" content="/path/to/your/image.jpg" />
-
-          <meta name="robots" content="index, follow" />
-          {/* <link rel="canonical" href="https://yourwebsite.com" /> */}
-
-  
-    </Head>
+        <meta name="robots" content="index, follow" />
+      </Head> 
       <UserContextProvider>
         <ThemeConfig>
           <QueryClientProvider client={queryClient}>
@@ -87,12 +87,14 @@ export default function MyApp(props) {
               hideProgressBar
               style={{ width: '400px', height: 'fit-content' }}
             />
-          <Layout>
-            <Component key={router.asPath} {...pageProps} />
-          </Layout>
+            <Layout>
+              <Component key={router.asPath} {...pageProps} />
+            </Layout>
           </QueryClientProvider>
         </ThemeConfig>
-        </UserContextProvider>
-        </>
+      </UserContextProvider> 
+    </>
   );
 }
+
+export default appWithTranslation(MyApp);

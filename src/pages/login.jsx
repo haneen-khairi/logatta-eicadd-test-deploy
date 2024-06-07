@@ -1,6 +1,6 @@
 import HeroPages from "@/components/shared/HeroPages";
 import React, { useContext, useState } from "react";
-import img from "../../public/assets/images/banner.jpg";
+import img from "../../public/assets/images/service-bg.jpeg";
 import loginImg from "../../public/assets/images/login.png";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -19,8 +19,9 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { UserData } from "@/context/UserProvider";
 import bgImage from "../../public/assets/images/gallery/16.jpeg";
-
+import { useTranslation } from "react-i18next";
 const Login = () => {
+  const {t} = useTranslation()
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const { setProfileData } = useContext(UserData);
@@ -152,7 +153,7 @@ const Login = () => {
                         variant="contained"
                         sx={{
                           width: "100%",
-                          py: ".7rem",
+                          py: ".7rem", 
                           backgroundColor: "#621493",
                           "&:hover": {
                             backgroundColor: "#5c466a",
@@ -160,7 +161,7 @@ const Login = () => {
                           },
                         }}
                       >
-                        تسجيل الدخول
+                       {t("text_13")}
                       </LoadingButton>
                     </Grid>
                   </Grid>
